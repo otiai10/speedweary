@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ShapViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIButton *startButton;
+
+@property (strong, nonatomic) NSArray *kaomojilist;
+@property (strong, nonatomic) IBOutlet UITextField *target;
 
 @end
