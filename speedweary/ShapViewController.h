@@ -13,5 +13,7 @@
 
 @property (strong, nonatomic) NSArray *kaomojilist;
 @property (strong, nonatomic) IBOutlet UITextField *target;
+@property (strong, nonatomic) IBOutlet UIButton *choice01;
+@property (strong, nonatomic) IBOutlet UIButton *choice02;
 
 @end
