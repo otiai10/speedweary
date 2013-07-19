@@ -16,6 +16,8 @@
 -(void)hideFace;
 -(void)displayChoices;
 -(void)hideChoices;
+-(void)pseudoTargetMotionEnd;
+-(BOOL)judgeAnswer;
 @end
 
 @implementation ShapViewController
@@ -25,6 +27,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.kaomojilist = [[NSArray alloc] initWithObjects:@"ヽ(ﾟ∀｡)ﾉｳｪー", @"( ﾟДﾟ)", @"（☝ ՞ਊ ՞）☝",nil];
+    self.score = 0;
     [self onChoiceTapped];
 }
 
@@ -39,10 +42,8 @@
     [self displayFace];
     [self hideStartButton];
     // pseudo timer
-    // sync sleep
 
-    [self hideFace];
-    [self onFaceDead];
+    [self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:2];
 }
 
 - (IBAction)onChoice01Tapped:(UIButton *)sender {
@@ -62,14 +63,22 @@
 
 // trigger to scene 1
 - (void)onChoiceTapped {
+    NSLog(@"onChoiceTapped");
     [self hideChoices];
-    NSLog(@"oppai!");
+    bool result = [self judgeAnswer];
+    if (result) {
+        self.score++;
+        self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
+    } else {
+        self.score = 0;
+    }
     [self showStartButton];
 }
 
 - (void)displayFace {
     NSLog (@"displayFace");
     int i = random() % self.kaomojilist.count;
+    self.target.hidden = NO;
     self.target.text = self.kaomojilist[i];
 }
 
@@ -94,6 +103,15 @@
 - (void)hideChoices {
     self.choice01.hidden = YES;
     self.choice02.hidden = YES;
+}
+
+- (void)pseudoTargetMotionEnd {
+    [self hideFace];
+    [self onFaceDead];
+}
+
+- (BOOL)judgeAnswer {
+    return YES;
 }
 
 @end
