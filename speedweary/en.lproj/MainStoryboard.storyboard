@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -22,7 +22,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startGame:" destination="2" eventType="touchDown" id="gPj-ZV-fyj"/>
+                                    <action selector="onStartButtonPressed:" destination="2" eventType="touchDown" id="3aa-tC-tuO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POp-pe-jvO">
@@ -33,16 +33,48 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hps-Id-DvN">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Choice01">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onChoice01Tapped:" destination="2" eventType="touchDown" id="uSy-2W-afc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UB-Mq-psr">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Choice02">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onChoice02Tapped:" destination="2" eventType="touchDown" id="R7n-gV-DxC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fdV-LV-aPP" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="3kq-uD-iyN"/>
+                            <constraint firstItem="fdV-LV-aPP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="227" id="A55-av-3lC"/>
                             <constraint firstItem="POp-pe-jvO" firstAttribute="top" secondItem="3" secondAttribute="top" constant="143" id="HFj-eg-85Y"/>
-                            <constraint firstItem="POp-pe-jvO" firstAttribute="centerX" secondItem="fdV-LV-aPP" secondAttribute="centerX" type="default" id="dJN-c6-faz"/>
-                            <constraint firstItem="fdV-LV-aPP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="227" id="rKo-49-fH5"/>
+                            <constraint firstItem="8UB-Mq-psr" firstAttribute="top" secondItem="hps-Id-DvN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Hvw-W5-n87"/>
+                            <constraint firstItem="8UB-Mq-psr" firstAttribute="centerX" secondItem="fdV-LV-aPP" secondAttribute="centerX" type="default" id="L1s-Me-bPM"/>
+                            <constraint firstItem="hps-Id-DvN" firstAttribute="centerX" secondItem="POp-pe-jvO" secondAttribute="centerX" type="default" id="aPt-ex-5cD"/>
+                            <constraint firstItem="8UB-Mq-psr" firstAttribute="leading" secondItem="hps-Id-DvN" secondAttribute="leading" type="default" id="ebF-sw-DPp"/>
+                            <constraint firstItem="8UB-Mq-psr" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="eqp-g4-YOb"/>
+                            <constraint firstItem="hps-Id-DvN" firstAttribute="top" secondItem="3" secondAttribute="top" constant="127" id="gSS-xb-vxz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="choice01" destination="hps-Id-DvN" id="FO6-us-aO2"/>
+                        <outlet property="choice02" destination="8UB-Mq-psr" id="Zan-ni-aeu"/>
                         <outlet property="startButton" destination="fdV-LV-aPP" id="UD0-ik-3ti"/>
                         <outlet property="target" destination="POp-pe-jvO" id="15Y-gg-89q"/>
                     </connections>
@@ -58,7 +90,9 @@
         <class className="ShapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShapViewController.h"/>
             <relationships>
-                <relationship kind="action" name="startGame:" candidateClass="UIButton"/>
+                <relationship kind="action" name="onStartButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="choice01" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="choice02" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="target" candidateClass="UITextField"/>
             </relationships>
