@@ -15,6 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *choice01;
 @property (strong, nonatomic) IBOutlet UIButton *choice02;
 @property int score;
-@property (strong, nonatomic) IBOutlet UITextField *scoreDisplay;
+@property (strong, nonatomic) IBOutlet UILabel *scoreDisplay;
 
 @end
