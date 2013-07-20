@@ -18,6 +18,7 @@
 -(void)hideChoices;
 -(void)pseudoTargetMotionEnd;
 -(BOOL)judgeAnswer;
+-(void)loadFaceList;
 @end
 
 @implementation ShapViewController
@@ -25,8 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.kaomojilist = [[NSArray alloc] initWithObjects:@"ヽ(ﾟ∀｡)ﾉｳｪー", @"( ﾟДﾟ)", @"（☝ ՞ਊ ՞）☝",nil];
+    [self loadFaceList];
     self.score = 0;
     [self onChoiceTapped];
 }
@@ -112,6 +112,16 @@
 
 - (BOOL)judgeAnswer {
     return YES;
+}
+
+- (void)loadFaceList {
+    NSString *fpath = [[NSBundle mainBundle] pathForResource:@"_facelist" ofType:@"txt"];
+    NSString *fdata;
+    NSError  *ferr = nil;
+    fdata = [NSString stringWithContentsOfFile:fpath encoding:NSUTF8StringEncoding error:&ferr];
+    if (ferr) NSLog(@"%@", ferr);
+    self.kaomojilist = [fdata componentsSeparatedByString:@"\n"];
+    //TODO: fpathなどの変数は開放される？
 }
 
 @end

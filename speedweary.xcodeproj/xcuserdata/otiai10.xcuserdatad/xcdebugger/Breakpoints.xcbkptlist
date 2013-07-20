@@ -26,7 +26,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "14"
          endingLineNumber = "14"
-         landmarkName = "kaomojilist"
+         landmarkName = "target"
          landmarkType = "19">
       </FileBreakpoint>
       <FileBreakpoint
@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "50"
          endingLineNumber = "50"
-         landmarkName = "-showStartButton"
+         landmarkName = "-onChoice01Tapped:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

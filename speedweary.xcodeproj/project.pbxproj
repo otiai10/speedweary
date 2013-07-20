@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C88C32C179A98C60039812C /* _facelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7C88C32B179A98C60039812C /* _facelist.txt */; };
 		7CA1CE421798062000CAD3FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA1CE411798062000CAD3FC /* UIKit.framework */; };
 		7CA1CE441798062000CAD3FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA1CE431798062000CAD3FC /* Foundation.framework */; };
 		7CA1CE461798062000CAD3FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CA1CE451798062000CAD3FC /* CoreGraphics.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C88C32B179A98C60039812C /* _facelist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _facelist.txt; sourceTree = "<group>"; };
 		7CA1CE3E1798062000CAD3FC /* speedweary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speedweary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA1CE411798062000CAD3FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7CA1CE431798062000CAD3FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +98,7 @@
 		7CA1CE481798062000CAD3FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7C88C32B179A98C60039812C /* _facelist.txt */,
 				7CA1CE491798062000CAD3FC /* speedweary-Info.plist */,
 				7CA1CE4A1798062000CAD3FC /* InfoPlist.strings */,
 				7CA1CE4D1798062000CAD3FC /* main.m */,
@@ -164,6 +167,7 @@
 				7CA1CE561798062000CAD3FC /* Default@2x.png in Resources */,
 				7CA1CE581798062000CAD3FC /* Default-568h@2x.png in Resources */,
 				7CA1CE5B1798062000CAD3FC /* MainStoryboard.storyboard in Resources */,
+				7C88C32C179A98C60039812C /* _facelist.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +303,7 @@
 				7CA1CE631798062000CAD3FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
