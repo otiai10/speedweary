@@ -25,7 +25,18 @@
 -(void)laughAtIncorrect;
 -(void)praiseForCorrect;
 
+// アニメーションの出発地点のワールド座標をランダムに選択
+-(CGPoint)getStartPoint;
+// アニメーションの終端地点のワールド座標を出発地点のワールド座標から計算
+-(CGPoint)getEndPointWithStart:(CGPoint)start;
+// ワールド座標からスクリーン座標へ変換
+-(CGPoint)translateCoord:(CGPoint)worldPoint;
+// viewをスクリーンに表示されない、かつposに一番近いスクリーン座標へ移動させる
+-(void)shiftToInvisiblePosition:(UIView*)view pos:(CGPoint)pos;
+
 -(NSArray *)randomPickUp: (int)cnt len:(int)len;
+// fromからtoまでのfloat型乱数を得る
+-(float)floatRand:(float)from to:(float)to;
 @end
 
 @implementation ShapViewController
@@ -60,7 +71,23 @@
     self.evaluaton.hidden = YES;
     self.tweetBtn.hidden = YES;
     // pseudo timer
-    [self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:0.5];
+
+    CGPoint startWorld = [self getStartPoint];
+    CGPoint endWorld = [self getEndPointWithStart:startWorld];
+    CGPoint startScreen = [self translateCoord:startWorld];
+    CGPoint endScreen = [self translateCoord:endWorld];
+    [self shiftToInvisiblePosition:self.target pos:startScreen];
+    [UIView animateWithDuration:1.f
+                          delay:random() % 2 + 3 // after 3 to 5 sec.
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [self shiftToInvisiblePosition:self.target pos:endScreen];
+                     }
+                     completion:^(BOOL finished) {
+                         [self hideFace];
+                         [self onFaceDead];
+                     }];
+    //[self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:0.5];
 }
 - (IBAction)onAltBtn0Tapped:(UIButton *)sender {
     self.choice = self.alternative0;
@@ -207,6 +234,81 @@
     if (ferr) NSLog(@"%@", ferr);
     self.kaomojilist = [fdata componentsSeparatedByString:@"\n"];
     //TODO: fpathなどの変数は開放される？
+}
+
+// アニメーションの出発地点のワールド座標をランダムに選択
+- (CGPoint)getStartPoint
+{
+    // 出発地点の条件
+    // -1 <= x, y <= 1
+    // and
+    // |x| == 1 or |y| == 1
+    float x = [self floatRand:-1 to:1];
+    float y = [self floatRand:-1 to:1];
+    if (arc4random() % 2) {
+        x = pow(-1, arc4random() % 2);
+    } else {
+        y = pow(-1, arc4random() % 2);
+    }
+    return CGPointMake(x, y);
+}
+
+// アニメーションの終端地点のワールド座標を出発地点のワールド座標から計算
+- (CGPoint)getEndPointWithStart:(CGPoint)start
+{
+    // 終端地点の条件
+    // -1 <= x', y' <= 1
+    // and
+    // x' = -x (if |x| == 1)   （出発地点が左右の端だったら）
+    // and
+    // y' = -y (if |y| == 1)   （出発地点が上下の端だったら）
+    float x = [self floatRand:-1 to:1];
+    float y = [self floatRand:-1 to:1];
+    // floatの近似等値比較（小数点第6位の精度）
+    if (abs(abs(start.x) - 1.f) < 0.000001f) {
+        x = -start.x;
+    }
+    // floatの近似等値比較（小数点第6位の精度）
+    if (abs(abs(start.y) - 1.f) < 0.000001f) {
+        y = -start.y;
+    }
+    return CGPointMake(x, y);
+}
+
+// ワールド座標からスクリーン座標へ変換
+- (CGPoint)translateCoord:(CGPoint)worldPoint
+{
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    float x = (worldPoint.x + 1) * (screen.size.width / 2.0);
+    float y = (-worldPoint.y + 1) * (screen.size.height / 2.0);
+    return CGPointMake(x, y);
+}
+
+// viewをスクリーンに表示されない、かつposに一番近いスクリーン座標へ移動させる
+- (void)shiftToInvisiblePosition:(UIView *)view pos:(CGPoint)pos
+{
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    CGSize viewSize = [view bounds].size;
+    // floatの近似等値比較（小数点第6位の精度）
+    if (abs(pos.x) < 0.000001f) {
+        pos.x -= viewSize.width;
+    } else if (abs(pos.x - screenSize.width) < 0.000001f){
+        pos.x += viewSize.width;
+    }
+    if (abs(pos.y) < 0.000001f) {
+        pos.y -= viewSize.height;
+    } else if (abs(pos.y - screenSize.height) < 0.000001f) {
+        pos.y += viewSize.height;
+    }
+    view.center = pos;
+}
+
+// fromからtoまでの範囲で、float型の乱数を得るユーティリティ関数
+// 参考：http://qiita.com/shu223/items/489b1b9193dc1b53308b
+- (float)floatRand:(float)from to:(float)to
+{
+    const static long long ARC4RANDOM_MAX = 0x100000000;
+    return ((to-from)*((float)arc4random()/ARC4RANDOM_MAX))+from;
 }
 
 @end
