@@ -28,6 +28,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hps-Id-DvN">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="9V3-N4-XIz"/>
+                                    <constraint firstAttribute="width" constant="280" id="LlA-vG-bI6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="AltBtn0">
@@ -42,8 +43,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UB-Mq-psr">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="278" id="ChH-uQ-La4"/>
                                     <constraint firstAttribute="height" constant="49" id="M6T-VS-jRb"/>
-                                    <constraint firstAttribute="width" constant="278" id="pjl-Cj-Pqb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="AltBtn1">
@@ -60,6 +61,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFb-mX-cAD">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="Ihg-hH-XNz"/>
+                                    <constraint firstAttribute="width" constant="278" id="sB4-qT-0si"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="AltBtn2">
@@ -88,22 +90,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hps-Id-DvN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0K8-B4-Hkb"/>
-                            <constraint firstAttribute="bottom" secondItem="fdV-LV-aPP" secondAttribute="bottom" constant="228" id="3BG-hL-DZV"/>
-                            <constraint firstItem="POp-pe-jvO" firstAttribute="top" secondItem="3" secondAttribute="top" constant="97" id="921-q6-XCk"/>
+                            <constraint firstAttribute="bottom" secondItem="POp-pe-jvO" secondAttribute="bottom" constant="119" id="93n-q7-DWu"/>
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="87" id="Drv-8Y-zry"/>
                             <constraint firstAttribute="trailing" secondItem="8UB-Mq-psr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GVh-J7-lvs"/>
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="baseline" secondItem="hps-Id-DvN" secondAttribute="baseline" type="default" id="KE8-Tg-bgQ"/>
-                            <constraint firstItem="fFb-mX-cAD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="170" id="PyE-HR-A4y"/>
+                            <constraint firstItem="hps-Id-DvN" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="LvI-CO-LsC"/>
                             <constraint firstItem="sXm-74-G8d" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="RMA-6u-8IM"/>
-                            <constraint firstItem="hps-Id-DvN" firstAttribute="top" secondItem="3" secondAttribute="top" constant="12" id="dTU-eZ-s2S"/>
-                            <constraint firstAttribute="trailing" secondItem="fFb-mX-cAD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dzt-1A-rJx"/>
+                            <constraint firstItem="hps-Id-DvN" firstAttribute="trailing" secondItem="fFb-mX-cAD" secondAttribute="trailing" type="default" id="UGl-QP-F15"/>
+                            <constraint firstItem="fFb-mX-cAD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="155" id="Ul0-0e-aee"/>
+                            <constraint firstAttribute="bottom" secondItem="fdV-LV-aPP" secondAttribute="bottom" constant="228" id="f6X-tK-s72"/>
                             <constraint firstItem="fdV-LV-aPP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="155" id="fcA-XK-S8s"/>
+                            <constraint firstItem="POp-pe-jvO" firstAttribute="centerX" secondItem="hps-Id-DvN" secondAttribute="centerX" type="default" id="fsc-eZ-qyD"/>
                             <constraint firstAttribute="bottom" secondItem="sXm-74-G8d" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="kqw-hZ-4cK"/>
-                            <constraint firstAttribute="trailing" secondItem="POp-pe-jvO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qfB-fm-gy5"/>
-                            <constraint firstItem="hps-Id-DvN" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="seE-KJ-ZCK"/>
+                            <constraint firstItem="hps-Id-DvN" firstAttribute="leading" secondItem="8UB-Mq-psr" secondAttribute="leading" type="default" id="vLg-0a-pSo"/>
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="baseline" secondItem="fFb-mX-cAD" secondAttribute="baseline" type="default" id="y9C-Jq-gLH"/>
-                            <constraint firstItem="8UB-Mq-psr" firstAttribute="leading" secondItem="fFb-mX-cAD" secondAttribute="leading" type="default" id="zs1-vo-toQ"/>
                         </constraints>
                     </view>
                     <connections>

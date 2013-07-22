@@ -21,7 +21,7 @@
 -(void)loadFaceList;
 -(void)initAll;
 -(void)refreshAnswers;
--(NSArray *)randomPickUp;
+-(NSArray *)randomPickUp: (int)cnt len:(int)len;
 @end
 
 @implementation ShapViewController
@@ -133,12 +133,13 @@
 }
 
 - (void)displayChoices {
-    [self.altBtn0 setTitle:self.kaomojilist[self.alternative0] forState:UIControlStateNormal];
-    [self.altBtn1 setTitle:self.kaomojilist[self.alternative1] forState:UIControlStateNormal];
-    [self.altBtn2 setTitle:self.kaomojilist[self.alternative2] forState:UIControlStateNormal];
     self.altBtn0.hidden = NO;
     self.altBtn1.hidden = NO;
     self.altBtn2.hidden = NO;
+    [self.altBtn0 setTitle:self.kaomojilist[self.alternative0] forState:UIControlStateNormal];
+    [self.altBtn1 setTitle:self.kaomojilist[self.alternative1] forState:UIControlStateNormal];
+    [self.altBtn2 setTitle:self.kaomojilist[self.alternative2] forState:UIControlStateNormal];
+    //NSLog(@"%@ is not displayed", self.kaomojilist[self.alternative2]);
 }
 
 - (void)hideChoices {
