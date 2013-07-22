@@ -18,6 +18,10 @@
 -(void)hideChoices;
 -(void)pseudoTargetMotionEnd;
 -(BOOL)judgeAnswer;
+-(void)loadFaceList;
+-(void)initAll;
+-(void)refreshAnswers;
+-(NSArray *)randomPickUp: (int)cnt len:(int)len;
 @end
 
 @implementation ShapViewController
@@ -25,10 +29,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.kaomojilist = [[NSArray alloc] initWithObjects:@"ヽ(ﾟ∀｡)ﾉｳｪー", @"( ﾟДﾟ)", @"（☝ ՞ਊ ՞）☝",nil];
+    [self loadFaceList];
     self.score = 0;
-    [self onChoiceTapped];
+    [self initAll];
+}
+
+- (void)initAll
+{
+    [self hideChoices];
+    [self showStartButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,18 +48,22 @@
 
 // trigger to scene 2
 - (IBAction)onStartButtonPressed:(UIButton *)sender {
+    [self refreshAnswers];
     [self displayFace];
     [self hideStartButton];
     // pseudo timer
-
     [self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:2];
 }
-
-- (IBAction)onChoice01Tapped:(UIButton *)sender {
+- (IBAction)onAltBtn0Tapped:(UIButton *)sender {
+    self.choice = self.alternative0;
     [self onChoiceTapped];
 }
-
-- (IBAction)onChoice02Tapped:(UIButton *)sender {
+- (IBAction)onAltBtn1Tapped:(UIButton *)sender {
+    self.choice = self.alternative1;
+    [self onChoiceTapped];
+}
+- (IBAction)onAltBtn2Tapped:(UIButton *)sender {
+    self.choice = self.alternative2;
     [self onChoiceTapped];
 }
 
@@ -75,11 +88,37 @@
     [self showStartButton];
 }
 
+- (void)refreshAnswers {
+    NSArray *idxs = [self randomPickUp:3 len:self.kaomojilist.count];
+    //self.answer = random() % self.kaomojilist.count;
+    self.choice = -1;
+    self.alternative0 = [idxs[0] intValue];
+    self.alternative1 = [idxs[1] intValue];
+    self.alternative2 = [idxs[2] intValue];
+    int a = random() % idxs.count;
+    self.answer       = [idxs[a] intValue];
+
+}
+
+// lenの幅を持った数値列からcntだけ要素をかぶらずランダムに抽出するメソッド
+// とりわけcnt==lenの場合、array_shuffleのようなもの
+- (NSArray *)randomPickUp:(int)cnt len:(int)len {
+    NSMutableArray *res = [NSMutableArray array];
+    while (true){
+        int tmp = random() % len;
+        if ([res containsObject:[NSNumber numberWithInt:tmp]] == false) {
+            [res addObject:[NSNumber numberWithInt:tmp]];
+        }//else かぶった
+        if (res.count == cnt) {
+            break;
+        }
+    }
+    return res;
+}
+
 - (void)displayFace {
-    NSLog (@"displayFace");
-    int i = random() % self.kaomojilist.count;
     self.target.hidden = NO;
-    self.target.text = self.kaomojilist[i];
+    self.target.text = self.kaomojilist[self.answer];
 }
 
 - (void)hideFace {
@@ -87,22 +126,26 @@
 }
 
 - (void)hideStartButton {
-    NSLog (@"hideStartButton");
     self.startButton.hidden = YES;
 }
 - (void)showStartButton {
-    NSLog (@"showStartButton");
     self.startButton.hidden = NO;
 }
 
 - (void)displayChoices {
-    self.choice01.hidden = NO;
-    self.choice02.hidden = NO;
+    self.altBtn0.hidden = NO;
+    self.altBtn1.hidden = NO;
+    self.altBtn2.hidden = NO;
+    [self.altBtn0 setTitle:self.kaomojilist[self.alternative0] forState:UIControlStateNormal];
+    [self.altBtn1 setTitle:self.kaomojilist[self.alternative1] forState:UIControlStateNormal];
+    [self.altBtn2 setTitle:self.kaomojilist[self.alternative2] forState:UIControlStateNormal];
+    //NSLog(@"%@ is not displayed", self.kaomojilist[self.alternative2]);
 }
 
 - (void)hideChoices {
-    self.choice01.hidden = YES;
-    self.choice02.hidden = YES;
+    self.altBtn0.hidden = YES;
+    self.altBtn1.hidden = YES;
+    self.altBtn2.hidden = YES;
 }
 
 - (void)pseudoTargetMotionEnd {
@@ -111,7 +154,18 @@
 }
 
 - (BOOL)judgeAnswer {
+    NSLog(@"ANSWER is %@ // CHOICE is %@", self.kaomojilist[self.answer], self.kaomojilist[self.choice]);
     return YES;
+}
+
+- (void)loadFaceList {
+    NSString *fpath = [[NSBundle mainBundle] pathForResource:@"_facelist" ofType:@"txt"];
+    NSString *fdata;
+    NSError  *ferr = nil;
+    fdata = [NSString stringWithContentsOfFile:fpath encoding:NSUTF8StringEncoding error:&ferr];
+    if (ferr) NSLog(@"%@", ferr);
+    self.kaomojilist = [fdata componentsSeparatedByString:@"\n"];
+    //TODO: fpathなどの変数は開放される？
 }
 
 @end
