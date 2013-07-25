@@ -22,6 +22,9 @@
 -(void)initAll;
 -(void)refreshAnswers;
 -(void)showResultEvaluation: (bool)result;
+-(void)laughAtIncorrect;
+-(void)praiseForCorrect;
+
 -(NSArray *)randomPickUp: (int)cnt len:(int)len;
 @end
 
@@ -39,6 +42,8 @@
 {
     [self hideChoices];
     [self showStartButton];
+    self.tweetBtn.hidden = YES;
+    self.correctAnswer.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +57,8 @@
     [self refreshAnswers];
     [self displayFace];
     [self hideStartButton];
+    self.evaluaton.hidden = YES;
+    self.tweetBtn.hidden = YES;
     // pseudo timer
     [self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:0.5];
 }
@@ -86,10 +93,38 @@
 - (void)showResultEvaluation:(bool)result {
     if (result) {
         self.score++;
+        [self praiseForCorrect];
     } else {
         self.score = 0;
+        [self laughAtIncorrect];
     }
     self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
+}
+- (void)praiseForCorrect {
+    self.evaluaton.text = @"d(´・ω・`)やるじゃん";
+    self.evaluaton.hidden = NO;
+}
+
+- (IBAction)tweetResult:(UIButton *)sender {
+    NSString *base_url = @"https://twitter.com/intent/tweet?text=";
+    //encoding
+    NSString *escaped = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                                     NULL,
+                                                                                     (CFStringRef)@"まちがえましたし",
+                                                                                     NULL,
+                                                                                     (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                     kCFStringEncodingUTF8 ));// TODO:動的に生成
+    NSString *tw_url = [base_url stringByAppendingString:escaped];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString:tw_url]];
+}
+
+- (void)laughAtIncorrect {
+    self.evaluaton.text = @"m9｡ﾟ(ﾟ^Д^ﾟ)ﾟザマァ";
+    self.evaluaton.hidden = NO;
+    self.correctAnswer.text = [@"正解:" stringByAppendingString: self.kaomojilist[self.answer]];
+    self.correctAnswer.hidden = NO;
+    self.tweetText = self.kaomojilist[self.choice];
+    self.tweetBtn.hidden = NO;
 }
 
 - (void)refreshAnswers {

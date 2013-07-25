@@ -13,14 +13,22 @@
 @property (strong, nonatomic) NSArray *kaomojilist;
 @property (strong, nonatomic) IBOutlet UITextField *target;
 @property (strong, nonatomic) IBOutlet UILabel *scoreDisplay;
+@property (strong, nonatomic) IBOutlet UILabel *evaluaton;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *altBtn0;
 @property (strong, nonatomic) IBOutlet UIButton *altBtn1;
 @property (strong, nonatomic) IBOutlet UIButton *altBtn2;
+@property (strong, nonatomic) IBOutlet UIButton *tweetBtn;
+@property (strong, nonatomic) IBOutlet UILabel *correctAnswer;
+
+
 
 @property int score;
 @property int answer;
 @property int choice;
+
+@property NSString *tweetText;
 
 @property int alternative0;
 @property int alternative1;
