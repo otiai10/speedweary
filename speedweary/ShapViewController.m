@@ -21,6 +21,7 @@
 -(void)loadFaceList;
 -(void)initAll;
 -(void)refreshAnswers;
+-(void)showResultEvaluation: (bool)result;
 -(NSArray *)randomPickUp: (int)cnt len:(int)len;
 @end
 
@@ -52,7 +53,7 @@
     [self displayFace];
     [self hideStartButton];
     // pseudo timer
-    [self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:2];
+    [self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:0.5];
 }
 - (IBAction)onAltBtn0Tapped:(UIButton *)sender {
     self.choice = self.alternative0;
@@ -79,13 +80,16 @@
     NSLog(@"onChoiceTapped");
     [self hideChoices];
     bool result = [self judgeAnswer];
+    [self showResultEvaluation: result];
+    [self showStartButton];
+}
+- (void)showResultEvaluation:(bool)result {
     if (result) {
         self.score++;
-        self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
     } else {
         self.score = 0;
     }
-    [self showStartButton];
+    self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
 }
 
 - (void)refreshAnswers {
@@ -154,8 +158,10 @@
 }
 
 - (BOOL)judgeAnswer {
-    NSLog(@"ANSWER is %@ // CHOICE is %@", self.kaomojilist[self.answer], self.kaomojilist[self.choice]);
-    return YES;
+    if (self.choice == self.answer) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)loadFaceList {
