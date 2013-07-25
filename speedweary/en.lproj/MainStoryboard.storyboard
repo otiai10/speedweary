@@ -28,7 +28,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hps-Id-DvN">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="9V3-N4-XIz"/>
-                                    <constraint firstAttribute="width" constant="280" id="LlA-vG-bI6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="AltBtn0">
@@ -43,8 +42,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UB-Mq-psr">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="278" id="ChH-uQ-La4"/>
                                     <constraint firstAttribute="height" constant="49" id="M6T-VS-jRb"/>
+                                    <constraint firstAttribute="width" constant="278" id="u7A-mq-Sam"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="AltBtn1">
@@ -61,7 +60,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFb-mX-cAD">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="Ihg-hH-XNz"/>
-                                    <constraint firstAttribute="width" constant="278" id="sB4-qT-0si"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="AltBtn2">
@@ -75,7 +73,7 @@
                                     <action selector="onAltBtn2Tapped:" destination="2" eventType="touchDown" id="Oba-N8-kc6"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POp-pe-jvO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="POp-pe-jvO">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="IPg-4J-LzU"/>
                                     <constraint firstAttribute="width" constant="165" id="YLj-fE-3Hf"/>
@@ -87,32 +85,78 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="（☝ ՞ਊ ՞）☝Press Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4H-hj-atJ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="SSg-aQ-axG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKA-A4-IqJ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="EWW-Vf-8e6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="負けツイートする">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tweetResult:" destination="2" eventType="touchDown" id="esG-Of-r9c"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="正解：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uO8-on-UuE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="4Wc-f7-cRS"/>
+                                    <constraint firstAttribute="height" constant="101" id="m7J-c4-dJO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="POp-pe-jvO" secondAttribute="bottom" constant="119" id="93n-q7-DWu"/>
+                            <constraint firstItem="G4H-hj-atJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="2TL-h7-hRJ"/>
+                            <constraint firstAttribute="bottom" secondItem="fdV-LV-aPP" secondAttribute="bottom" constant="231" id="7l3-8x-1sm"/>
+                            <constraint firstAttribute="trailing" secondItem="G4H-hj-atJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="88P-1e-J2f"/>
+                            <constraint firstItem="uO8-on-UuE" firstAttribute="centerX" secondItem="POp-pe-jvO" secondAttribute="centerX" type="default" id="C7i-wa-vPU"/>
+                            <constraint firstItem="hps-Id-DvN" firstAttribute="leading" secondItem="G4H-hj-atJ" secondAttribute="leading" type="default" id="CfX-7X-d3Q"/>
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="87" id="Drv-8Y-zry"/>
                             <constraint firstAttribute="trailing" secondItem="8UB-Mq-psr" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GVh-J7-lvs"/>
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="baseline" secondItem="hps-Id-DvN" secondAttribute="baseline" type="default" id="KE8-Tg-bgQ"/>
+                            <constraint firstAttribute="bottom" secondItem="POp-pe-jvO" secondAttribute="bottom" constant="119" id="Lbs-kV-6Af"/>
                             <constraint firstItem="hps-Id-DvN" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="LvI-CO-LsC"/>
+                            <constraint firstItem="uO8-on-UuE" firstAttribute="leading" secondItem="fFb-mX-cAD" secondAttribute="leading" type="default" id="MVJ-Su-XQc"/>
+                            <constraint firstAttribute="bottom" secondItem="TKA-A4-IqJ" secondAttribute="bottom" constant="54" id="NQy-0m-2yP"/>
                             <constraint firstItem="sXm-74-G8d" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="RMA-6u-8IM"/>
                             <constraint firstItem="hps-Id-DvN" firstAttribute="trailing" secondItem="fFb-mX-cAD" secondAttribute="trailing" type="default" id="UGl-QP-F15"/>
                             <constraint firstItem="fFb-mX-cAD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="155" id="Ul0-0e-aee"/>
-                            <constraint firstAttribute="bottom" secondItem="fdV-LV-aPP" secondAttribute="bottom" constant="228" id="f6X-tK-s72"/>
-                            <constraint firstItem="fdV-LV-aPP" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="155" id="fcA-XK-S8s"/>
-                            <constraint firstItem="POp-pe-jvO" firstAttribute="centerX" secondItem="hps-Id-DvN" secondAttribute="centerX" type="default" id="fsc-eZ-qyD"/>
+                            <constraint firstItem="TKA-A4-IqJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZHO-OY-Ecp"/>
+                            <constraint firstItem="POp-pe-jvO" firstAttribute="centerX" secondItem="fdV-LV-aPP" secondAttribute="centerX" type="default" id="crt-gf-tSC"/>
+                            <constraint firstAttribute="trailing" secondItem="TKA-A4-IqJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dvY-mv-9y1"/>
                             <constraint firstAttribute="bottom" secondItem="sXm-74-G8d" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="kqw-hZ-4cK"/>
+                            <constraint firstItem="fdV-LV-aPP" firstAttribute="centerX" secondItem="hps-Id-DvN" secondAttribute="centerX" type="default" id="rnf-17-SpN"/>
+                            <constraint firstAttribute="trailing" secondItem="uO8-on-UuE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uDT-j4-hd8"/>
                             <constraint firstItem="hps-Id-DvN" firstAttribute="leading" secondItem="8UB-Mq-psr" secondAttribute="leading" type="default" id="vLg-0a-pSo"/>
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="baseline" secondItem="fFb-mX-cAD" secondAttribute="baseline" type="default" id="y9C-Jq-gLH"/>
+                            <constraint firstItem="TKA-A4-IqJ" firstAttribute="top" secondItem="uO8-on-UuE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zSk-gm-U9O"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="altBtn0" destination="hps-Id-DvN" id="Dvw-Dm-Xtx"/>
                         <outlet property="altBtn1" destination="8UB-Mq-psr" id="eA0-S0-oaC"/>
                         <outlet property="altBtn2" destination="fFb-mX-cAD" id="VkY-DG-uuC"/>
+                        <outlet property="correctAnswer" destination="uO8-on-UuE" id="o2G-aY-Gvc"/>
+                        <outlet property="evaluaton" destination="G4H-hj-atJ" id="Ze8-Q4-HKx"/>
                         <outlet property="scoreDisplay" destination="sXm-74-G8d" id="wa4-oa-Qe5"/>
                         <outlet property="startButton" destination="fdV-LV-aPP" id="UD0-ik-3ti"/>
                         <outlet property="target" destination="POp-pe-jvO" id="15Y-gg-89q"/>
+                        <outlet property="tweetBtn" destination="TKA-A4-IqJ" id="OEt-gG-DGr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -130,12 +174,16 @@
                 <relationship kind="action" name="onAltBtn1Tapped:" candidateClass="UIButton"/>
                 <relationship kind="action" name="onAltBtn2Tapped:" candidateClass="UIButton"/>
                 <relationship kind="action" name="onStartButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="tweetResult:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="altBtn0" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="altBtn1" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="altBtn2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="correctAnswer" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="evaluaton" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreDisplay" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="target" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tweetBtn" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
