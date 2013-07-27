@@ -70,6 +70,7 @@
     [self hideStartButton];
     self.evaluaton.hidden = YES;
     self.tweetBtn.hidden = YES;
+    self.correctAnswer.hidden = YES;
     // pseudo timer
 
     CGPoint startWorld = [self getStartPoint];
@@ -104,14 +105,12 @@
 
 // trigger to scene 3
 - (void)onFaceDead {
-    NSLog(@"onFaceDead");
     // display choices
     [self displayChoices];
 }
 
 // trigger to scene 1
 - (void)onChoiceTapped {
-    NSLog(@"onChoiceTapped");
     [self hideChoices];
     bool result = [self judgeAnswer];
     [self showResultEvaluation: result];
@@ -137,10 +136,10 @@
     //encoding
     NSString *escaped = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                                                                                      NULL,
-                                                                                     (CFStringRef)@"まちがえましたし",
+                                                                                     (CFStringRef) self.tweetText,
                                                                                      NULL,
                                                                                      (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                     kCFStringEncodingUTF8 ));// TODO:動的に生成
+                                                                                     kCFStringEncodingUTF8 ));// TODO:動
     NSString *tw_url = [base_url stringByAppendingString:escaped];
     [[UIApplication sharedApplication] openURL: [NSURL URLWithString:tw_url]];
 }
@@ -150,7 +149,7 @@
     self.evaluaton.hidden = NO;
     self.correctAnswer.text = [@"正解:" stringByAppendingString: self.kaomojilist[self.answer]];
     self.correctAnswer.hidden = NO;
-    self.tweetText = self.kaomojilist[self.choice];
+    self.tweetText = [NSString stringWithFormat:@"あんたは%d点：%@", self.score, self.kaomojilist[self.choice]];
     self.tweetBtn.hidden = NO;
 }
 
@@ -205,7 +204,6 @@
     [self.altBtn0 setTitle:self.kaomojilist[self.alternative0] forState:UIControlStateNormal];
     [self.altBtn1 setTitle:self.kaomojilist[self.alternative1] forState:UIControlStateNormal];
     [self.altBtn2 setTitle:self.kaomojilist[self.alternative2] forState:UIControlStateNormal];
-    //NSLog(@"%@ is not displayed", self.kaomojilist[self.alternative2]);
 }
 
 - (void)hideChoices {
