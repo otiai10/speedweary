@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "speedweary/ShapViewController.m"
-         timestampString = "396595896.676022"
+         timestampString = "396695533.816093"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
          landmarkName = "-praiseForCorrect"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "speedweary/ShapViewController.m"
-         timestampString = "396595896.676022"
+         timestampString = "396695362.853038"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
+         startingLineNumber = "143"
+         endingLineNumber = "143"
          landmarkName = "-tweetResult:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "speedweary/ShapViewController.m"
-         timestampString = "396595896.676022"
+         timestampString = "396695533.816093"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
          landmarkName = "-showResultEvaluation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,12 +73,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "speedweary/ShapViewController.m"
-         timestampString = "396595896.676022"
+         timestampString = "396695533.816093"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
          landmarkName = "-showResultEvaluation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "speedweary/ShapViewController.m"
+         timestampString = "396600111.942432"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
+         landmarkName = "@implementation ShapViewController"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "speedweary/ShapViewController.m"
+         timestampString = "396600112.874629"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
+         landmarkName = "-displayChoices"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "speedweary/ShapViewController.m"
+         timestampString = "396600541.735702"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "210"
+         endingLineNumber = "210"
+         landmarkName = "-hideChoices"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "speedweary/ShapViewController.m"
+         timestampString = "396600541.735702"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
+         landmarkName = "-hideChoices"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
