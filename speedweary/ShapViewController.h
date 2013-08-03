@@ -22,8 +22,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *tweetBtn;
 @property (strong, nonatomic) IBOutlet UILabel *correctAnswer;
 
-
-
 @property int score;
 @property int answer;
 @property int choice;
@@ -33,5 +31,7 @@
 @property int alternative0;
 @property int alternative1;
 @property int alternative2;
+
+@property (nonatomic, assign)BOOL alertFinished;
 
 @end

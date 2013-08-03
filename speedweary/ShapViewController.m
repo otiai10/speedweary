@@ -25,6 +25,11 @@
 -(void)laughAtIncorrect;
 -(void)praiseForCorrect;
 
+// 現ステージにおいて適用するスピードを得る
+-(float)defineMotionSpeed;
+// スピードアップを告知する
+-(void)alertLevelUp;
+
 // アニメーションの出発地点のワールド座標をランダムに選択
 -(CGPoint)getStartPoint;
 // アニメーションの終端地点のワールド座標を出発地点のワールド座標から計算
@@ -78,8 +83,8 @@
     CGPoint startScreen = [self translateCoord:startWorld];
     CGPoint endScreen = [self translateCoord:endWorld];
     [self shiftToInvisiblePosition:self.target pos:startScreen];
-    [UIView animateWithDuration:1.f
-                          delay:random() % 2 + 3 // after 3 to 5 sec.
+    [UIView animateWithDuration: [self defineMotionSpeed]
+                          delay:random() % 3 + 1 // after 1 to 3 sec.
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          [self shiftToInvisiblePosition:self.target pos:endScreen];
@@ -90,6 +95,33 @@
                      }];
     //[self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:0.5];
 }
+-(float)defineMotionSpeed {
+    double base = 2;
+    int range = 5;
+    int raw_index = self.score / range;
+    if (self.score != 0 && self.score % range == 0) {
+        [self alertLevelUp];
+    }
+    double tuned_index = 1 + (-0.3)*raw_index;
+    float duration = pow(base, tuned_index);
+    return duration;
+}
+-(void)alertLevelUp {
+    UIAlertView *alert =
+    [[UIAlertView alloc] initWithTitle:@"( ﾟдﾟ )ｸﾜｯ!!" message:@"ｽﾋﾟーﾄﾞｱｯﾌﾟ" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil ];
+    [alert show];
+    self.alertFinished = NO;
+    while (!self.alertFinished) {
+        [[NSRunLoop currentRunLoop]
+         runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+    }
+}
+// delegated method
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    self.alertFinished = YES;
+}
+
 - (IBAction)onAltBtn0Tapped:(UIButton *)sender {
     self.choice = self.alternative0;
     [self onChoiceTapped];
