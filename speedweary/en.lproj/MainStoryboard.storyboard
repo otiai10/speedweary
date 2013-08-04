@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -42,7 +42,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UB-Mq-psr">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="278" id="0gg-SL-Yb1"/>
+                                    <constraint firstAttribute="width" constant="278" id="PXd-OW-pOb"/>
                                     <constraint firstAttribute="height" constant="49" id="fiO-CA-esW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -111,10 +111,19 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="正解：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uO8-on-UuE">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="276" id="GZI-XZ-p0v"/>
+                                    <constraint firstAttribute="width" constant="276" id="1lh-BB-2Dg"/>
                                     <constraint firstAttribute="height" constant="101" id="H4S-Zi-RU9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ready?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhF-4h-fwt">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="0K2-QT-p8l"/>
+                                    <constraint firstAttribute="width" constant="120" id="83Y-3a-7ep"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -122,8 +131,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="G4H-hj-atJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2FI-lF-3sJ"/>
+                            <constraint firstItem="LhF-4h-fwt" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="104" id="2zU-DJ-v2g"/>
+                            <constraint firstItem="LhF-4h-fwt" firstAttribute="top" secondItem="3" secondAttribute="top" constant="231" id="5Ca-GZ-tlC"/>
                             <constraint firstItem="uO8-on-UuE" firstAttribute="leading" secondItem="fFb-mX-cAD" secondAttribute="leading" type="default" id="6GD-dg-ffr"/>
                             <constraint firstItem="TKA-A4-IqJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6qz-iq-M9L"/>
+                            <constraint firstItem="uO8-on-UuE" firstAttribute="centerX" secondItem="POp-pe-jvO" secondAttribute="centerX" type="default" id="7sK-Kc-bcM"/>
                             <constraint firstAttribute="bottom" secondItem="TKA-A4-IqJ" secondAttribute="bottom" constant="54" id="8y7-TB-SV7"/>
                             <constraint firstItem="hps-Id-DvN" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="95u-iy-nsf"/>
                             <constraint firstAttribute="bottom" secondItem="POp-pe-jvO" secondAttribute="bottom" constant="119" id="Lba-Oe-bc1"/>
@@ -134,18 +146,18 @@
                             <constraint firstItem="sXm-74-G8d" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TtI-rA-k82"/>
                             <constraint firstAttribute="bottom" secondItem="sXm-74-G8d" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="ZMe-ii-kbE"/>
                             <constraint firstItem="hps-Id-DvN" firstAttribute="trailing" secondItem="fFb-mX-cAD" secondAttribute="trailing" type="default" id="aqh-hj-Gon"/>
-                            <constraint firstItem="8UB-Mq-psr" firstAttribute="leading" secondItem="G4H-hj-atJ" secondAttribute="leading" type="default" id="esg-ey-N91"/>
-                            <constraint firstItem="uO8-on-UuE" firstAttribute="centerX" secondItem="POp-pe-jvO" secondAttribute="centerX" type="default" id="fD6-ea-33x"/>
-                            <constraint firstItem="fdV-LV-aPP" firstAttribute="centerX" secondItem="POp-pe-jvO" secondAttribute="centerX" type="default" id="fIn-Hj-DxK"/>
-                            <constraint firstAttribute="bottom" secondItem="fdV-LV-aPP" secondAttribute="bottom" constant="231" id="h2Y-hM-I2K"/>
+                            <constraint firstAttribute="bottom" secondItem="fdV-LV-aPP" secondAttribute="bottom" constant="231" id="fEw-vm-fd4"/>
+                            <constraint firstItem="POp-pe-jvO" firstAttribute="centerX" secondItem="fdV-LV-aPP" secondAttribute="centerX" type="default" id="fLZ-hF-z5W"/>
                             <constraint firstItem="fFb-mX-cAD" firstAttribute="top" secondItem="3" secondAttribute="top" constant="155" id="iPO-qE-ekN"/>
-                            <constraint firstItem="fdV-LV-aPP" firstAttribute="centerX" secondItem="hps-Id-DvN" secondAttribute="centerX" type="default" id="iwr-Qp-UIM"/>
                             <constraint firstItem="TKA-A4-IqJ" firstAttribute="top" secondItem="uO8-on-UuE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oLb-bj-BO2"/>
                             <constraint firstAttribute="trailing" secondItem="uO8-on-UuE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="orE-xp-td4"/>
                             <constraint firstItem="G4H-hj-atJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="rh6-WI-TO1"/>
+                            <constraint firstItem="G4H-hj-atJ" firstAttribute="leading" secondItem="8UB-Mq-psr" secondAttribute="leading" type="default" id="uHs-54-hEN"/>
+                            <constraint firstItem="hps-Id-DvN" firstAttribute="centerX" secondItem="fdV-LV-aPP" secondAttribute="centerX" type="default" id="va6-in-79l"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="afterStartButtonLabel" destination="LhF-4h-fwt" id="Ox6-wV-kim"/>
                         <outlet property="altBtn0" destination="hps-Id-DvN" id="Dvw-Dm-Xtx"/>
                         <outlet property="altBtn1" destination="8UB-Mq-psr" id="eA0-S0-oaC"/>
                         <outlet property="altBtn2" destination="fFb-mX-cAD" id="VkY-DG-uuC"/>
@@ -161,30 +173,6 @@
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ShapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShapViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="onAltBtn0Tapped:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onAltBtn1Tapped:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onAltBtn2Tapped:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onStartButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="tweetResult:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="altBtn0" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="altBtn1" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="altBtn2" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="correctAnswer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="evaluaton" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scoreDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="target" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="tweetBtn" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
