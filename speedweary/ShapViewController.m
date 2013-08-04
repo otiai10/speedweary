@@ -165,7 +165,7 @@
     } else {
         [self laughAtIncorrect];
     }
-    self.scoreDisplay.text = [NSString stringWithFormat:@"%d", self.score];
+    self.scoreDisplay.text = [NSString stringWithFormat:@"STAGE %d", self.score];
 }
 - (void)praiseForCorrect {
     self.evaluaton.text = @"d(´・ω・`)やるじゃん";
