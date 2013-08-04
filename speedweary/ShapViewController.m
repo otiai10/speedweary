@@ -84,7 +84,7 @@
     CGPoint endScreen = [self translateCoord:endWorld];
     [self shiftToInvisiblePosition:self.target pos:startScreen];
     [UIView animateWithDuration: [self defineMotionSpeed]
-                          delay:random() % 3 + 1 // after 1 to 3 sec.
+                          delay:arc4random() % 3 + 1 // after 1 to 3 sec.
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          [self shiftToInvisiblePosition:self.target pos:endScreen];
@@ -192,7 +192,7 @@
     self.alternative0 = [idxs[0] intValue];
     self.alternative1 = [idxs[1] intValue];
     self.alternative2 = [idxs[2] intValue];
-    int a = random() % idxs.count;
+    int a = arc4random() % idxs.count;
     self.answer       = [idxs[a] intValue];
 
 }
@@ -202,7 +202,7 @@
 - (NSArray *)randomPickUp:(int)cnt len:(int)len {
     NSMutableArray *res = [NSMutableArray array];
     while (true){
-        int tmp = random() % len;
+        int tmp = arc4random() % len;
         if ([res containsObject:[NSNumber numberWithInt:tmp]] == false) {
             [res addObject:[NSNumber numberWithInt:tmp]];
         }//else かぶった
