@@ -60,6 +60,7 @@
     [self showStartButton];
     self.tweetBtn.hidden = YES;
     self.correctAnswer.hidden = YES;
+    self.afterStartButtonLabel.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,29 +72,39 @@
 // trigger to scene 2
 - (IBAction)onStartButtonPressed:(UIButton *)sender {
     [self refreshAnswers];
-    [self displayFace];
     [self hideStartButton];
     self.evaluaton.hidden = YES;
     self.tweetBtn.hidden = YES;
     self.correctAnswer.hidden = YES;
-    // pseudo timer
+    float speed = [self defineMotionSpeed];
 
-    CGPoint startWorld = [self getStartPoint];
-    CGPoint endWorld = [self getEndPointWithStart:startWorld];
-    CGPoint startScreen = [self translateCoord:startWorld];
-    CGPoint endScreen = [self translateCoord:endWorld];
-    [self shiftToInvisiblePosition:self.target pos:startScreen];
-    [UIView animateWithDuration: [self defineMotionSpeed]
-                          delay:arc4random() % 3 + 1 // after 1 to 3 sec.
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         [self shiftToInvisiblePosition:self.target pos:endScreen];
-                     }
-                     completion:^(BOOL finished) {
-                         [self hideFace];
-                         [self onFaceDead];
-                     }];
-    //[self performSelector:@selector(pseudoTargetMotionEnd) withObject:nil afterDelay:0.5];
+    // スタートボタン後のゲーム開始を知らせるテキスト表示
+    self.afterStartButtonLabel.hidden = NO;
+
+    // 1秒後に上記テキストを非表示にして、ゲーム開始
+    double delayInSeconds = 1.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        self.afterStartButtonLabel.hidden = YES;
+
+        [self displayFace];
+
+        CGPoint startWorld = [self getStartPoint];
+        CGPoint endWorld = [self getEndPointWithStart:startWorld];
+        CGPoint startScreen = [self translateCoord:startWorld];
+        CGPoint endScreen = [self translateCoord:endWorld];
+        [self shiftToInvisiblePosition:self.target pos:startScreen];
+        [UIView animateWithDuration:speed
+                              delay:arc4random() % 3 + 1 // after 1 to 3 sec.
+                            options:UIViewAnimationOptionCurveLinear
+                         animations:^{
+                             [self shiftToInvisiblePosition:self.target pos:endScreen];
+                         }
+                         completion:^(BOOL finished) {
+                             [self hideFace];
+                             [self onFaceDead];
+                         }];
+    });
 }
 -(float)defineMotionSpeed {
     double base = 2;
