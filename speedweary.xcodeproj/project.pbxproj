@@ -19,6 +19,7 @@
 		7CA1CE581798062000CAD3FC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1CE571798062000CAD3FC /* Default-568h@2x.png */; };
 		7CA1CE5B1798062000CAD3FC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CA1CE591798062000CAD3FC /* MainStoryboard.storyboard */; };
 		7CA1CE5E1798062000CAD3FC /* ShapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA1CE5D1798062000CAD3FC /* ShapViewController.m */; };
+		E8316CC717B0AC62004B6F86 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8316CC617B0AC62004B6F86 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		7CA1CE5A1798062000CAD3FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		7CA1CE5C1798062000CAD3FC /* ShapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShapViewController.h; sourceTree = "<group>"; };
 		7CA1CE5D1798062000CAD3FC /* ShapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShapViewController.m; sourceTree = "<group>"; };
+		E8316CC617B0AC62004B6F86 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8316CC717B0AC62004B6F86 /* iAd.framework in Frameworks */,
 				7CA1CE421798062000CAD3FC /* UIKit.framework in Frameworks */,
 				7CA1CE441798062000CAD3FC /* Foundation.framework in Frameworks */,
 				7CA1CE461798062000CAD3FC /* CoreGraphics.framework in Frameworks */,
@@ -58,6 +61,7 @@
 		7CA1CE351798062000CAD3FC = {
 			isa = PBXGroup;
 			children = (
+				E8316CC617B0AC62004B6F86 /* iAd.framework */,
 				7CA1CE471798062000CAD3FC /* speedweary */,
 				7CA1CE401798062000CAD3FC /* Frameworks */,
 				7CA1CE3F1798062000CAD3FC /* Products */,
