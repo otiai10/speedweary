@@ -352,4 +352,34 @@
     return ((to-from)*((float)arc4random()/ARC4RANDOM_MAX))+from;
 }
 
+// ADBannerViewDelegate実装
+// バナーがロードされたときの処理
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    // 表示
+    banner.hidden = NO;
+}
+
+// バナークリック時の処理
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave
+{
+    return YES;
+}
+
+// 広告のロード前の処理
+- (void)bannerViewWillLoadAd:(ADBannerView *)banner
+{
+}
+
+// 広告表示終了後、アプリに戻ったときの処理
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner
+{
+}
+
+// ロードするバナーがなかったときの処理
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    // 非表示
+    banner.hidden = YES;
+}
 @end
