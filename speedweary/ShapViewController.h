@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *altBtn2;
 @property (strong, nonatomic) IBOutlet UIButton *tweetBtn;
 @property (strong, nonatomic) IBOutlet UILabel *correctAnswer;
+@property (strong, nonatomic) IBOutlet UILabel *afterStartButtonLabel;
 
 @property int score;
 @property int answer;
