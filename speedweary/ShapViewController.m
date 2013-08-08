@@ -38,6 +38,8 @@
 -(CGPoint)translateCoord:(CGPoint)worldPoint;
 // viewをスクリーンに表示されない、かつposに一番近いスクリーン座標へ移動させる
 -(void)shiftToInvisiblePosition:(UIView*)view pos:(CGPoint)pos;
+// 正解の顔がバナーに隠れて見えない領域のみを通らないように調整する（引数の座標を調整したものに変更する）
+-(void)adjustEndCoordForBanner:(CGPoint*)start end:(CGPoint*)end;
 
 -(NSArray *)randomPickUp: (int)cnt len:(int)len;
 // fromからtoまでのfloat型乱数を得る
@@ -93,6 +95,7 @@
         CGPoint endWorld = [self getEndPointWithStart:startWorld];
         CGPoint startScreen = [self translateCoord:startWorld];
         CGPoint endScreen = [self translateCoord:endWorld];
+        [self adjustEndCoordForBanner:&startScreen end:&endScreen];
         [self shiftToInvisiblePosition:self.target pos:startScreen];
         [UIView animateWithDuration:speed
                               delay:arc4random() % 3 + 1 // after 1 to 3 sec.
@@ -342,6 +345,35 @@
         pos.y += viewSize.height;
     }
     view.center = pos;
+}
+
+// 正解の顔がバナーに隠れて見えない領域のみを通らないように調整する
+-(void)adjustEndCoordForBanner:(CGPoint*)start end:(CGPoint*)end
+{
+    CGRect screenRect = [UIScreen mainScreen].bounds;
+    // 画面の上下端を通るような場合は変更しない
+    if (abs(start->y - end->y) >= screenRect.size.height) {
+        return;
+    }
+
+    CGRect bannerRect = self.adView.frame;
+    // バナーの上端y座標
+    CGFloat bannerUpperY = bannerRect.origin.y;
+    // バナーの下端y座標
+    CGFloat bannerBottomY = bannerUpperY + bannerRect.size.height;
+    // startがバナー範囲内か
+    BOOL startIsInBanner = (start->y >= bannerUpperY) && (start->y <= bannerBottomY);
+    // endがバナー範囲内か
+    BOOL endIsInBanner = (end->y >= bannerUpperY) && (end->y <= bannerBottomY);
+
+    // startやendのどちらかがバナー領域を通っていなければ変更しない
+    if (!startIsInBanner || !endIsInBanner) {
+        return;
+    }
+
+    // 画面対角線上に移動する（確実に可視領域を通る）ように調整
+    *start = CGPointMake(0, 0);
+    *end = CGPointMake(screenRect.size.width, screenRect.size.height);
 }
 
 // fromからtoまでの範囲で、float型の乱数を得るユーティリティ関数
