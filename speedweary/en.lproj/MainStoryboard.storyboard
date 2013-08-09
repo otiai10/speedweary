@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C2034" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -152,17 +152,17 @@
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WjH-mF-BQu"/>
                             <constraint firstAttribute="trailing" secondItem="TKA-A4-IqJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Wnp-47-6KH"/>
                             <constraint firstAttribute="bottom" secondItem="sXm-74-G8d" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Wyk-b5-sNI"/>
-                            <constraint firstItem="fdV-LV-aPP" firstAttribute="top" secondItem="3" secondAttribute="top" constant="200" id="X0L-Dm-11A"/>
                             <constraint firstItem="8UB-Mq-psr" firstAttribute="top" secondItem="3" secondAttribute="top" constant="240" id="YAq-2T-jrC"/>
                             <constraint firstItem="TKA-A4-IqJ" firstAttribute="top" secondItem="uO8-on-UuE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bpg-jc-LNA"/>
                             <constraint firstItem="G4H-hj-atJ" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="d8j-xx-oW0"/>
                             <constraint firstItem="hps-Id-DvN" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="e2n-eo-Gva"/>
                             <constraint firstAttribute="trailing" secondItem="fFb-mX-cAD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hgb-Ai-vU0"/>
-                            <constraint firstItem="G4H-hj-atJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="iow-j2-OIN"/>
                             <constraint firstItem="sXm-74-G8d" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jgC-en-7IL"/>
+                            <constraint firstItem="LhF-4h-fwt" firstAttribute="top" secondItem="3" secondAttribute="top" constant="231" id="jtH-Zq-aCv"/>
                             <constraint firstAttribute="trailing" secondItem="uO8-on-UuE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oK3-5Q-dbm"/>
                             <constraint firstAttribute="bottom" secondItem="POp-pe-jvO" secondAttribute="bottom" constant="119" id="q5j-RY-FW2"/>
-                            <constraint firstItem="LhF-4h-fwt" firstAttribute="top" secondItem="3" secondAttribute="top" constant="231" id="vIr-PB-Lkx"/>
+                            <constraint firstItem="G4H-hj-atJ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="105" id="qKE-y0-MkT"/>
+                            <constraint firstItem="fFb-mX-cAD" firstAttribute="top" secondItem="fdV-LV-aPP" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="w5X-Ck-g1V"/>
                             <constraint firstItem="POp-pe-jvO" firstAttribute="centerX" secondItem="uO8-on-UuE" secondAttribute="centerX" type="default" id="xeN-ef-Xmo"/>
                             <constraint firstItem="2ay-Ku-UZf" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="y7K-hY-t2A"/>
                             <constraint firstItem="2ay-Ku-UZf" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="zjM-qX-gRA"/>
