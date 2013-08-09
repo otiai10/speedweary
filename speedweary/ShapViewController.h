@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface ShapViewController : UIViewController
+@interface ShapViewController : UIViewController<ADBannerViewDelegate>
 @property (strong, nonatomic) IBOutlet UIButton *startButton;
 @property (strong, nonatomic) NSArray *kaomojilist;
 @property (strong, nonatomic) IBOutlet UITextField *target;
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *tweetBtn;
 @property (strong, nonatomic) IBOutlet UILabel *correctAnswer;
 @property (strong, nonatomic) IBOutlet UILabel *afterStartButtonLabel;
+@property (strong, nonatomic) IBOutlet ADBannerView *adView;
 
 @property int score;
 @property int answer;
@@ -34,5 +36,6 @@
 @property int alternative2;
 
 @property (nonatomic, assign)BOOL alertFinished;
+
 
 @end
