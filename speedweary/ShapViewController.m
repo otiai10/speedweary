@@ -60,6 +60,7 @@
     [self hideChoices];
     [self loadFaceList];
     [self showStartButton];
+    self.target.hidden = YES;
     self.tweetBtn.hidden = YES;
     self.correctAnswer.hidden = YES;
     self.afterStartButtonLabel.hidden = YES;
