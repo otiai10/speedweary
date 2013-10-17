@@ -196,6 +196,7 @@
     self.correctAnswer.text = [@"正解:" stringByAppendingString: self.kaomojilist[self.answer]];
     self.correctAnswer.hidden = NO;
     self.tweetText = [NSString stringWithFormat:@"あんたは%d点：%@", self.score, self.kaomojilist[self.choice]];
+    self.tweetText = [self.tweetText stringByAppendingString:@" #speedweary"];
     self.score = 0;
     self.tweetBtn.hidden = NO;
 }
