@@ -208,6 +208,9 @@
     self.alternative0 = [idxs[0] intValue];
     self.alternative1 = [idxs[1] intValue];
     self.alternative2 = [idxs[2] intValue];
+    [self.altBtn0 setTitle:self.kaomojilist[self.alternative0] forState:UIControlStateNormal];
+    [self.altBtn1 setTitle:self.kaomojilist[self.alternative1] forState:UIControlStateNormal];
+    [self.altBtn2 setTitle:self.kaomojilist[self.alternative2] forState:UIControlStateNormal];
     int a = arc4random() % idxs.count;
     self.answer       = [idxs[a] intValue];
 
@@ -249,9 +252,6 @@
     self.altBtn0.hidden = NO;
     self.altBtn1.hidden = NO;
     self.altBtn2.hidden = NO;
-    [self.altBtn0 setTitle:self.kaomojilist[self.alternative0] forState:UIControlStateNormal];
-    [self.altBtn1 setTitle:self.kaomojilist[self.alternative1] forState:UIControlStateNormal];
-    [self.altBtn2 setTitle:self.kaomojilist[self.alternative2] forState:UIControlStateNormal];
 }
 
 - (void)hideChoices {
