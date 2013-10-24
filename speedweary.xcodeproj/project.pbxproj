@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C83159718193D870047AE9C /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C83159418193D870047AE9C /* icon58.png */; };
+		7C83159818193D870047AE9C /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C83159518193D870047AE9C /* icon80.png */; };
+		7C83159918193D870047AE9C /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C83159618193D870047AE9C /* icon120.png */; };
 		7C88C32C179A98C60039812C /* _facelist.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7C88C32B179A98C60039812C /* _facelist.txt */; };
 		7C9A5F8D180FFBE3006A736C /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9A5F8C180FFBE3006A736C /* icon57.png */; };
 		7C9A5F8F180FFBED006A736C /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C9A5F8E180FFBED006A736C /* icon114.png */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C83159418193D870047AE9C /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
+		7C83159518193D870047AE9C /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
+		7C83159618193D870047AE9C /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
 		7C88C32B179A98C60039812C /* _facelist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _facelist.txt; sourceTree = "<group>"; };
 		7C9A5F8C180FFBE3006A736C /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
 		7C9A5F8E180FFBED006A736C /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon114.png; sourceTree = "<group>"; };
@@ -108,6 +114,9 @@
 		7CA1CE481798062000CAD3FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7C83159418193D870047AE9C /* icon58.png */,
+				7C83159518193D870047AE9C /* icon80.png */,
+				7C83159618193D870047AE9C /* icon120.png */,
 				7C88C32B179A98C60039812C /* _facelist.txt */,
 				7CA1CE491798062000CAD3FC /* speedweary-Info.plist */,
 				7CA1CE4A1798062000CAD3FC /* InfoPlist.strings */,
@@ -176,8 +185,11 @@
 				7CA1CE541798062000CAD3FC /* Default.png in Resources */,
 				7CA1CE561798062000CAD3FC /* Default@2x.png in Resources */,
 				7CA1CE581798062000CAD3FC /* Default-568h@2x.png in Resources */,
+				7C83159818193D870047AE9C /* icon80.png in Resources */,
 				7CA1CE5B1798062000CAD3FC /* MainStoryboard.storyboard in Resources */,
 				7C88C32C179A98C60039812C /* _facelist.txt in Resources */,
+				7C83159918193D870047AE9C /* icon120.png in Resources */,
+				7C83159718193D870047AE9C /* icon58.png in Resources */,
 				7C9A5F8D180FFBE3006A736C /* icon57.png in Resources */,
 				7C9A5F8F180FFBED006A736C /* icon114.png in Resources */,
 			);
@@ -285,7 +297,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "speedweary/speedweary-Prefix.pch";
 				INFOPLIST_FILE = "speedweary/speedweary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -296,7 +310,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "speedweary/speedweary-Prefix.pch";
 				INFOPLIST_FILE = "speedweary/speedweary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
